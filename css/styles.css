@@ -1,0 +1,7 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  text-align: center;
+  font-size: 45px;
+}
