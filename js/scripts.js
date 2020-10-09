@@ -18,6 +18,11 @@ pokemonList[2] = {
 };
 
 //creating loop to write name and height of all items in pokemonList array
+//added conditional printing "wow, that's big" if height exceeds 1.0. 
 for (let i = 0; i <= pokemonList.length; i++) {
-  document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height + ')  ');
+  if (pokemonList[i].height > 1.0) {
+    document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height + ') ' + ' - Wow, that\'s big!');
+  } else {
+    document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height + ') ');
+  }
 }
