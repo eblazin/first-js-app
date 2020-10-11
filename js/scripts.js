@@ -1,4 +1,4 @@
-//Using Const inlieu of let because Const prevents the value from being changed through reassignment
+//Using Const inlieu of let because Const prevents the variable identifier "pokemonList" from being changed through reassignment
 const pokemonList = [];
 //Adding Pokemon to the pokemonList array
 pokemonList[0] = {
