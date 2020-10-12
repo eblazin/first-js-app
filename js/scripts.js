@@ -1,6 +1,6 @@
 //Using Const inlieu of let because Const prevents the variable identifier "pokemonList" from being changed through reassignment
 const pokemonList = [];
-//Adding Pokemon to the pokemonList array
+//Adding Pokemon to the pokemonList array using push method.
 pokemonList.push({
   name: "Blastoise",
   height: "1.6",
