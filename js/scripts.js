@@ -1,21 +1,21 @@
 //Using Const inlieu of let because Const prevents the variable identifier "pokemonList" from being changed through reassignment
 const pokemonList = [];
 //Adding Pokemon to the pokemonList array
-pokemonList[0] = {
+pokemonList.push({
   name: "Blastoise",
   height: "1.6",
   types: ["Grass", "Electric", "Steel"]
-};
-pokemonList[1] = {
+});
+pokemonList.push({
   name: "Sandslash",
   height: "1.0",
   types: ["Grass", "Water", "Ice"]
-};
-pokemonList[2] = {
+});
+pokemonList.push({
   name: "Pichu",
   height: "0.3",
   types: ["Ground", "Flying", "Steel"]
-};
+});
 
 //creating loop to write name and height of all items in pokemonList array
 //added conditional printing "wow, that's big" if height exceeds 1.0. 
