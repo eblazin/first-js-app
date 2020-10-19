@@ -1,4 +1,6 @@
 //Using Const inlieu of let because Const prevents the variable identifier "pokemonList" from being changed through reassignment
+
+const pokemonRepository = (function () {
 const pokemonList = [];
 //Adding Pokemon to the pokemonList array using push method.
 pokemonList.push({
@@ -16,9 +18,24 @@ pokemonList.push({
   height: "0.3",
   types: ["Ground", "Flying", "Steel"]
 });
+//Defining functions to add items to the pokemonList and to return all items in the pokemonList array
+function add(pokemon) {
+  pokemonList.add(pokemon);
+}
+
+function getAll(){
+  return pokemonList;
+}
+// returning objects with add and getAll as keys - 
+return {
+  add: add,
+  getAll: getAll
+};
+})();
 
 //creating loop to write name and height of all items in pokemonList array
 //added conditional printing "wow, that's big" if height exceeds 1.0. 
+
 /*
 for (let i = 0; i <= pokemonList.length; i++) {
   if (pokemonList[i].height > 1.0) {
