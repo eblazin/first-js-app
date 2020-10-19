@@ -30,6 +30,7 @@ for (let i = 0; i <= pokemonList.length; i++) {
 */
 
 //refactoring code commented out above to use forEach() to iterate over repository array
+//Replaced String Literals with Template Literals
 pokemonList.forEach(function (pokemon) {
   if (pokemon.height > 1.0) {
     document.write(`${pokemon.name} (height: ${pokemon.height}) - Wow, that's big! <br> <br>`);
