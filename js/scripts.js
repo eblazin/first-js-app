@@ -20,7 +20,7 @@ pokemonList.push({
 });
 //Defining functions to add items to the pokemonList and to return all items in the pokemonList array
 function add(pokemon) {
-  pokemonList.add(pokemon);
+  pokemonList.push(pokemon);
 }
 
 function getAll(){
