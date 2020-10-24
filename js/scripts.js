@@ -39,7 +39,8 @@ function addListItem(pokemon) {
   button.classList.add("item-button");
   listpokemon.appendChild(button);
   unorderedList.appendChild(listpokemon);
-  button.addEventListener('click', showDetails(pokemon));//adding event listener to button, and calling the show details function
+  button.addEventListener('click', ()=>{
+    showDetails(pokemon)});//adding event listener to button, and using an arrow function to callthe showDetails function
 }
 
 
