@@ -26,13 +26,36 @@ function add(pokemon) {
 function getAll(){
   return pokemonList;
 }
-// returning objects with add and getAll as keys - 
+
+function showDetails(pokemon){
+  console.log(pokemon)
+}
+
+function addListItem(pokemon) {
+  let unorderedList = document.querySelector(".pokemon-list");
+  let listpokemon = document.createElement("li");
+  let button = document.createElement("button");
+  button.innerText = pokemon.name;
+  button.classList.add("item-button");
+  listpokemon.appendChild(button);
+  unorderedList.appendChild(listpokemon);
+  button.addEventListener('click', showDetails(pokemon));//adding event listener to button, and calling the show details function
+}
+
+
+// returning objects with add, getAll, and addListItem as keys 
 return {
   add: add,
-  getAll: getAll
+  getAll: getAll,
+  addListItem: addListItem
 };
 })();
 
+console.log(pokemonRepository.getAll());
+
+pokemonRepository.getAll().forEach(function (pokemon) {
+  pokemonRepository.addListItem(pokemon);
+});
 //creating loop to write name and height of all items in pokemonList array
 //added conditional printing "wow, that's big" if height exceeds 1.0. 
 
@@ -45,13 +68,14 @@ for (let i = 0; i <= pokemonList.length; i++) {
   }
 }
 */
-
 //refactoring code commented out above to use forEach() to iterate over repository array
 //Replaced String Literals with Template Literals
-pokemonRepository.getAll().forEach(function (pokemon) {
-  if (pokemon.height > 1.0) {
+
+
+  /* if (pokemon.height > 1.0) {
     document.write(`${pokemon.name} (height: ${pokemon.height}) - Wow, that's big! <br> <br>`);
   } else {
     document.write(`${pokemon.name} (height: ${pokemon.height})<br> <br>`);
   }
-})
+}) 
+*/

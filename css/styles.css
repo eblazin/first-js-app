@@ -1,16 +1,23 @@
 main {
-  text-align: left;
+  text-align: center;
   font-size: 45px;
   font-family: "Noto Sans JP", sans-serif;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   margin: 50px auto;
   font-size: 20px;
   white-space: nowrap;
   padding: 50px 20px;
   border-style: solid;
+  width: 250px;
 }
 
+ul {
+  list-style-position: inside;
+  list-style-type: none;
+  padding-left: 0;
+}
 /* Implementing responsive design media queries for mobile and tablet devices */
 @media all and (min-width: 500px) and (max-width: 750px) {
   main {
@@ -23,4 +30,15 @@ main {
     max-width: 200px;
     white-space: normal;
   }
+}
+
+.item-button {
+  background-color: #b942f5;
+  border: solid;
+  font-size: 16px;
+  transition: 0.2s opacity;
+  padding: 20px;
+  margin: 20px auto;
+  width: 200px;
+  text-align: center;
 }
