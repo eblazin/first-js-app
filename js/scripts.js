@@ -2,6 +2,8 @@
 
 const pokemonRepository = (function () {
 const pokemonList = [];
+//fetching the api
+let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 //Adding Pokemon to the pokemonList array using push method.
 pokemonList.push({
   name: "Blastoise",
@@ -26,7 +28,7 @@ function add(pokemon) {
 function getAll(){
   return pokemonList;
 }
-
+//changing show details function to loaddetails from the pokemon api
 function showDetails(pokemon){
   console.log(pokemon)
 }
@@ -42,13 +44,43 @@ function addListItem(pokemon) {
   button.addEventListener('click', ()=>{
     showDetails(pokemon)});//adding event listener to button, and using an arrow function to callthe showDetails function
 }
-
-
+//adding LoadList() method to fetch data from the API, then adding Pokemon to pokemonList
+function loadList() {
+  return fetch(apiUrl).then(function (response) {
+    return response.json();
+  }).then(function (json) {
+    json.results.forEach(function (item) {
+      let pokemon = {
+        name: item.name,
+        detailsUrl: item.url
+      };
+      add(pokemon);
+    });
+  }).catch(function (e) {
+    console.error(e);
+  })
+}
+//loading the detailed data for a given Pokemon
+function loadDetails(item) {
+  let url = item.detailsUrl;
+  return fetch(url).then(function (response) {
+    return response.json();
+  }).then(function (details) {
+    // Now we add the details to the item
+    item.imageUrl = details.sprites.front_default;
+    item.height = details.height;
+    item.types = details.types;
+  }).catch(function (e) {
+    console.error(e);
+  });
+}
 // returning objects with add, getAll, and addListItem as keys 
 return {
   add: add,
   getAll: getAll,
-  addListItem: addListItem
+  addListItem: addListItem,
+  loadList: loadList,
+  loadDetails: loadDetails
 };
 })();
 
