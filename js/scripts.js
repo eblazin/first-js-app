@@ -2,24 +2,9 @@
 
 const pokemonRepository = (function () {
 const pokemonList = [];
-//fetching the api
+//fetching the api with the list of Pokemon
 let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-//Adding Pokemon to the pokemonList array using push method.
-pokemonList.push({
-  name: "Blastoise",
-  height: "1.6",
-  types: ["Grass", "Electric", "Steel"]
-});
-pokemonList.push({
-  name: "Sandslash",
-  height: "1.0",
-  types: ["Grass", "Water", "Ice"]
-});
-pokemonList.push({
-  name: "Pichu",
-  height: "0.3",
-  types: ["Ground", "Flying", "Steel"]
-});
+
 //Defining functions to add items to the pokemonList and to return all items in the pokemonList array
 function add(pokemon) {
   pokemonList.push(pokemon);
@@ -30,7 +15,9 @@ function getAll(){
 }
 //changing show details function to loaddetails from the pokemon api
 function showDetails(pokemon){
-  console.log(pokemon)
+  loadDetails(pokemon).then(function (){
+    console.log(pokemon);
+});
 }
 
 function addListItem(pokemon) {
@@ -86,8 +73,10 @@ return {
 
 console.log(pokemonRepository.getAll());
 
+pokemonRepository.loadList().then(function() {
 pokemonRepository.getAll().forEach(function (pokemon) {
   pokemonRepository.addListItem(pokemon);
+});
 });
 //creating loop to write name and height of all items in pokemonList array
 //added conditional printing "wow, that's big" if height exceeds 1.0. 
