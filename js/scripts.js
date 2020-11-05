@@ -17,7 +17,6 @@ function getAll(){
 function showDetails(pokemon){
   loadDetails(pokemon).then(function (){
     //adding Modal functionality
-    let modalContainer = document.querySelector('#modal-container');
 //adding bootstrap modal javaScript
 function showModal(item){
   let modalBody = $(".modal-body");
@@ -49,8 +48,7 @@ function showModal(item){
   modalBody.append(heightElement);
   modalBody.append(weightElement);
   modalBody.append(typesElement);
-  modalBody.append(abilitiesElement);
-     
+  modalBody.append(abilitiesElement); 
 }
     /*function showModal(title, text){
       modalContainer.innerHTML = '';
@@ -99,14 +97,7 @@ function showModal(item){
       modalContainer.classList.add('is-visible');
     }
 */
-    function hideModal(){
-      modalContainer.classList.remove('is-visible');
-    }
     
-      showModal(pokemon.name, `height: ${pokemon.height}`);
-    
-
-
 });
 }
 
