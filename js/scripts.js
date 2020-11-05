@@ -18,8 +18,41 @@ function showDetails(pokemon){
   loadDetails(pokemon).then(function (){
     //adding Modal functionality
     let modalContainer = document.querySelector('#modal-container');
-
-    function showModal(title, text){
+//adding bootstrap modal javaScript
+function showModal(item){
+  let modalBody = $(".modal-body");
+  let modalTitle = $(".modal-title");
+  let modalHeader = $(".modal-header");
+  
+  modalTitle.empty(); //empty the title - this is important as they may add up
+  modalBody.empty();  //empty the body - this is important as they may add up
+  
+  let nameElement = $("<h1>" + item.name + "</h1>");
+  //Creating an image element
+  let imageElementFront = $('<img class=“modal-omg” style=“width:50%”>');
+  imageElementFront.attr("src", item.imageURLFront);
+  let imageElementBack = $('<img class=“modal-img” style=“width:50%”>');
+  imageElementBack.attr("src", item.imageURLBack);
+  
+  //creating element for height in modal content
+  let heightElement = $("<p> " + "height : " + item.height + "</p>");
+  
+  let weightElement = $("<p>" + "types : " + item.weight + "</p>");
+  
+  let typesElement = $("<p>" + "types : " + item.types + "</p>");
+  
+  let abilitiesElement = $("<p>" + "abilities : " + item.abilities + "</p>");
+  
+  modalTitle.append(nameElement);
+  modalBody.append(imageElementFront);
+  modalBody.append(imageElementBack);
+  modalBody.append(heightElement);
+  modalBody.append(weightElement);
+  modalBody.append(typesElement);
+  modalBody.append(abilitiesElement);
+     
+}
+    /*function showModal(title, text){
       modalContainer.innerHTML = '';
 
       let modal = document.createElement('div');
@@ -65,7 +98,7 @@ function showDetails(pokemon){
 
       modalContainer.classList.add('is-visible');
     }
-
+*/
     function hideModal(){
       modalContainer.classList.remove('is-visible');
     }
