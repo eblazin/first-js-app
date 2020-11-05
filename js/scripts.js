@@ -80,12 +80,12 @@ function showDetails(pokemon){
 function addListItem(pokemon) {
   let unorderedList = document.querySelector(".pokemon-list");
   let listpokemon = document.createElement("li");
-  li.addClass("group-list-item"); //adding bootstrap class to li element using jquery
   let button = document.createElement("button");
   button.innerText = pokemon.name;
   button.classList.add("item-button", "btn", "btn-primary");//adding bootstrap classes to button element using javaScript
   listpokemon.appendChild(button);
   unorderedList.appendChild(listpokemon);
+  listpokemon.classList.add("list-group-item"); //adding bootstrap class to li element using jquery
   button.addEventListener('click', ()=>{
     showDetails(pokemon)});//adding event listener to button, and using an arrow function to callthe showDetails function
 }
