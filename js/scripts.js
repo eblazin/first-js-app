@@ -17,8 +17,19 @@ function getAll(){
 function showDetails(pokemon){
   loadDetails(pokemon).then(function (){
     //adding Modal functionality
-    showModal(pokemon);
-  })};
+    let modalContainer = document.querySelector('#modal-container');
+
+    function showModal(title, text){
+      modalContainer.innerHTML = '';
+
+      let modal = document.createElement('div');
+      modal.classList.add('modal');
+
+      //Add the new modal content
+      let closeButtonElement = document.createElement('button');
+      closeButtonElement.classList.add('modal-close');
+      closeButtonElement.innerText = 'X';
+      closeButtonElement.addEventListener('click', hideModal);
 
     function showModal(pokemon) {
 
@@ -26,33 +37,31 @@ function showDetails(pokemon){
       let modalTitle = $(".modal-title");
       let modalHeader = $(".modal-header");
       
-      modalTitle.empty(); //empty the title - this is important as they may add up
-      modalBody.empty();  //empty the body - this is important as they may add up
-      
-      let nameElement = $("<h1>" + pokemon.name + "</h1>");
-      //Creating an image element
-      let imageElementFront = $('<img class="modal-img" style="width:50%">');
-      imageElementFront.attr("src", pokemon.imageURLFront);
-      let imageElementBack = $('<img class="modal-img" style="width:50%">');
-      imageElementBack.attr("src", pokemon.imageURLBack);
-      
-      //creating element for height in modal content
-      let heightElement = $("<p> " + "height : " + pokemon.height + "</p>");
-      
-      let weightElement = $("<p>" + "types : " + pokemon.weight + "</p>");
-      
-      let typesElement = $("<p>" + "types : " + pokemon.types + "</p>");
-      
-      let abilitiesElement = $("<p>" + "abilities : " + pokemon.abilities + "</p>");
-      
-      modalTitle.append(nameElement);
-      modalBody.append(imageElementFront);
-      modalBody.append(imageElementBack);
-      modalBody.append(heightElement);
-      modalBody.append(weightElement);
-      modalBody.append(typesElement);
-      modalBody.append(abilitiesElement);
-      }//end modal function
+
+      let titleElement = document.createElement('h1');
+      titleElement.innerText = title; //pokemon name
+
+      let contentElement = document.createElement('p');
+      contentElement.innerText = text;
+
+      let imageElement = document.createElement('img');
+      imageElement.src = pokemon.imageUrl;
+    
+
+      modal.appendChild(closeButtonElement);
+      modal.appendChild(titleElement);
+      modal.appendChild(contentElement);
+      modal.appendChild(imageElement);
+      modalContainer.appendChild(modal);
+
+      modalContainer.classList.add('is-visible');
+    }
+
+    function hideModal(){
+      modalContainer.classList.remove('is-visible');
+    }
+    
+      showModal(pokemon.name, `height: ${pokemon.height}`);
     
 
 
