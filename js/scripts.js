@@ -17,21 +17,45 @@ function getAll(){
 function showDetails(pokemon){
   loadDetails(pokemon).then(function (){
     //adding Modal functionality
-    let modalContainer = document.querySelector('#modal-container');
-
-    function showModal(title, text){
-      modal
-
-    function hideModal(){
-      modalContainer.classList.remove('is-visible');
-    }
-  
     showModal(pokemon);
+  })};
+
+    function showModal(pokemon) {
+
+      let modalBody = $(".modal-body");
+      let modalTitle = $(".modal-title");
+      let modalHeader = $(".modal-header");
+      
+      modalTitle.empty(); //empty the title - this is important as they may add up
+      modalBody.empty();  //empty the body - this is important as they may add up
+      
+      let nameElement = $("<h1>" + pokemon.name + "</h1>");
+      //Creating an image element
+      let imageElementFront = $('<img class="modal-img" style="width:50%">');
+      imageElementFront.attr("src", pokemon.imageURLFront);
+      let imageElementBack = $('<img class="modal-img" style="width:50%">');
+      imageElementBack.attr("src", pokemon.imageURLBack);
+      
+      //creating element for height in modal content
+      let heightElement = $("<p> " + "height : " + pokemon.height + "</p>");
+      
+      let weightElement = $("<p>" + "types : " + pokemon.weight + "</p>");
+      
+      let typesElement = $("<p>" + "types : " + pokemon.types + "</p>");
+      
+      let abilitiesElement = $("<p>" + "abilities : " + pokemon.abilities + "</p>");
+      
+      modalTitle.append(nameElement);
+      modalBody.append(imageElementFront);
+      modalBody.append(imageElementBack);
+      modalBody.append(heightElement);
+      modalBody.append(weightElement);
+      modalBody.append(typesElement);
+      modalBody.append(abilitiesElement);
+      }//end modal function
     
 
 
-});
-}
 
 function addListItem(pokemon) {
   let unorderedList = document.querySelector(".pokemon-list");
@@ -69,6 +93,7 @@ function loadDetails(item) {
   }).then(function (details) {
     // Now we add the details to the item
     item.imageUrl = details.sprites.front_default;
+    item.imageURLBack = details.sprites.back_default;
     item.height = details.height;
     item.types = details.types;
   }).catch(function (e) {
