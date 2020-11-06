@@ -26,29 +26,26 @@ const pokemonRepository = (function () {
           modalTitle.empty(); //empty the title - this is important as they may add up
           modalBody.empty();  //empty the body - this is important as they may add up
           
-          let nameElement = $("<h1>" + item.name + "</h1>");
+          let nameElement = $("<h1>" + pokemon.name + "</h1>");
           //Creating an image element
-          let imageElementFront = $('<img class="modal-omg" style="width:50%">');
-          imageElementFront.attr("src", item.imageURLFront);
+          let imageElementFront = $('<img class="modal-img" style="width:50%">');
+          imageElementFront.attr("src", pokemon.imageURL);
           let imageElementBack = $('<img class="modal-img" style="width:50%">');
-          imageElementBack.attr("src", item.imageURLBack);
+          imageElementBack.attr("src", pokemon.imageURLBack);
           
           //creating element for height in modal content
-          let heightElement = $("<p> " + "height : " + item.height + "</p>");
+          let heightElement = $("<p> " + "height : " + pokemon.height + "</p>");
           
-          let weightElement = $("<p>" + "types : " + item.weight + "</p>");
+          let weightElement = $("<p>" + "weight : " + pokemon.weight + "</p>");
           
-          let typesElement = $("<p>" + "types : " + item.types + "</p>");
+          let typesElement = $("<p>" + "types : " + pokemon.types + "</p>");
           
-          let abilitiesElement = $("<p>" + "abilities : " + item.abilities + "</p>");
+          let abilitiesElement = $("<p>" + "abilities : " + pokemon.abilities + "</p>");
           
           modalTitle.append(nameElement);
           modalBody.append(imageElementFront);
-          modalBody.append(imageElementBack);
           modalBody.append(heightElement);
           modalBody.append(weightElement);
-          modalBody.append(typesElement);
-          modalBody.append(abilitiesElement);
           }
 
           showModal(pokemon);
@@ -143,6 +140,7 @@ const pokemonRepository = (function () {
       // Now we add the details to the item
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
+      item.weight = details.weight
       item.types = details.types;
     }).catch(function (e) {
       console.error(e);
