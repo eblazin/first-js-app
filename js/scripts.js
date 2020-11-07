@@ -21,31 +21,28 @@ const pokemonRepository = (function () {
 
           let modalBody = $(".modal-body");
           let modalTitle = $(".modal-title");
-          let modalHeader = $(".modal-header");
           
           modalTitle.empty(); //empty the title - this is important as they may add up
           modalBody.empty();  //empty the body - this is important as they may add up
           
-          let nameElement = $("<h1>" + pokemon.name + "</h1>");
+          let nameElement = $("<h1>" + item.name + "</h1>");
           //Creating an image element
           let imageElementFront = $('<img class="modal-img" style="width:50%">');
-          imageElementFront.attr("src", pokemon.imageURL);
+          imageElementFront.attr("src", item.imageUrl);
           let imageElementBack = $('<img class="modal-img" style="width:50%">');
-          imageElementBack.attr("src", pokemon.imageURLBack);
+          imageElementBack.attr("src", item.imageUrlBack);
           
           //creating element for height in modal content
-          let heightElement = $("<p> " + "height : " + pokemon.height + "</p>");
-          
-          let weightElement = $("<p>" + "weight : " + pokemon.weight + "</p>");
-          
-          let typesElement = $("<p>" + "types : " + pokemon.types + "</p>");
-          
-          let abilitiesElement = $("<p>" + "abilities : " + pokemon.abilities + "</p>");
+          let heightElement = $("<p> " + "height : " + item.height + "</p>");
+          //creating element for weight in modal content
+          let weightElement = $("<p>" + "weight : " + item.weight + "</p>");
           
           modalTitle.append(nameElement);
           modalBody.append(imageElementFront);
+          modalBody.append(imageElementBack);
           modalBody.append(heightElement);
           modalBody.append(weightElement);
+          
           }
 
           showModal(pokemon);
@@ -139,9 +136,9 @@ const pokemonRepository = (function () {
     }).then(function (details) {
       // Now we add the details to the item
       item.imageUrl = details.sprites.front_default;
+      item.imageUrlBack = details.sprites.back_default;
       item.height = details.height;
       item.weight = details.weight
-      item.types = details.types;
     }).catch(function (e) {
       console.error(e);
     });
