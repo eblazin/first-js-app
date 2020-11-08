@@ -18,19 +18,6 @@ ul {
   list-style-type: none;
   padding-left: 0;
 }
-/* Implementing responsive design media queries for mobile and tablet devices */
-@media all and (min-width: 500px) and (max-width: 750px) {
-  main {
-    max-width: 500px;
-  }
-}
-
-@media all and (min-width: 200px) and (max-width: 500px) {
-  main {
-    max-width: 200px;
-    white-space: normal;
-  }
-}
 
 .item-button {
   background-color: #b942f5;
@@ -47,4 +34,20 @@ ul {
   padding: 0;
   border: 0;
   margin: 0;
+}
+/* Implementing responsive design media queries for mobile and tablet devices */
+@media all and (min-width: 500px) and (max-width: 750px) {
+  main {
+    max-width: 500px;
+  }
+}
+
+@media all and (min-width: 200px) and (max-width: 500px) {
+  main {
+    max-width: 200px;
+  }
+
+  .header-pokedex {
+    font-size: 30px;
+  }
 }
