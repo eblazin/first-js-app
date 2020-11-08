@@ -1,0 +1,68 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 2 version
+*/
+
+main {
+  text-align: center;
+  font-size: 45px;
+  font-family: "Noto Sans JP", sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 50px auto;
+  font-size: 20px;
+  white-space: nowrap;
+  padding: 50px 20px;
+  border-style: solid;
+  width: 250px;
+}
+
+ul {
+  list-style-position: inside;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.item-button {
+  background-color: #b942f5;
+  border: solid;
+  font-size: 16px;
+  -webkit-transition: 0.2s opacity;
+  transition: 0.2s opacity;
+  padding: 10px;
+  margin: 5px auto;
+  width: 100%;
+  text-align: center;
+}
+
+.list-group-item {
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+/* Implementing responsive design media queries for mobile and tablet devices */
+@media all and (min-width: 500px) and (max-width: 750px) {
+  main {
+    max-width: 500px;
+  }
+}
+
+@media all and (min-width: 200px) and (max-width: 500px) {
+  main {
+    max-width: 200px;
+  }
+
+  .header-pokedex {
+    font-size: 30px;
+  }
+}
